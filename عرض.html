@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قانون مساءلة الأحداث | الطراز الفيكتوري</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: 'Amiri' for the Victorian/Classic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Amiri', 'serif'] }, // Changed to Serif font
+                    colors: {
+                        vic: {
+                            red: '#5D1822',    // Deep Burgundy (Primary)
+                            gold: '#B78727',   // Antique Gold (Accent)
+                            cream: '#F9F5EB',  // Vintage Paper (Background)
+                            dark: '#1F1717',   // Dark Brown/Black (Text)
+                            secondary: '#2C3E50' // Muted Blue/Grey for contrast
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #F9F5EB; color: #1F1717; }
+        
+        /* Victorian Gradient */
+        .gradient-header { 
+            background: linear-gradient(135deg, #5D1822 0%, #3b0e15 100%); 
+            border-bottom: 4px solid #B78727;
+        }
+        
+        /* Card Styling for Paper Look */
+        .paper-card {
+            background-color: #fff;
+            border: 1px solid #e5e5da;
+            box-shadow: 0 4px 6px -1px rgba(93, 24, 34, 0.1);
+        }
+        .card-hover:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(93, 24, 34, 0.15); transition: all 0.3s ease; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F9F5EB; }
+        ::-webkit-scrollbar-thumb { background: #5D1822; border-radius: 2px; border: 2px solid #F9F5EB; }
+    </style>
+</head>
+<body class="font-sans leading-relaxed text-lg">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-[#F9F5EB]/95 backdrop-blur shadow-sm z-50 border-b border-[#B78727]/30">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-bold text-vic-red text-xl flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-vic-gold"></i>
+                <span>قانون مساءلة الأحداث</span>
+            </div>
+            <div class="hidden lg:flex gap-6 text-lg font-bold text-vic-secondary">
+                <a href="#intro" class="hover:text-vic-red transition">المقدمة</a>
+                <a href="#concepts" class="hover:text-vic-red transition">المفاهيم</a>
+                <a href="#measures" class="hover:text-vic-red transition">التدابير</a>
+                <a href="#procedures" class="hover:text-vic-red transition">الإجراءات</a>
+                <a href="#comparison" class="hover:text-vic-red transition">المقارنة</a>
+                <a href="#conclusion" class="hover:text-vic-red transition">النتائج</a>
+            </div>
+            <a href="#ai-zone" class="bg-vic-red text-vic-cream px-5 py-2 rounded-sm text-sm font-bold hover:bg-[#3b0e15] transition shadow-md border border-vic-gold flex items-center gap-2">
+                <i class="fa-solid fa-robot"></i> المستشار الذكي
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. HEADER & INTRO -->
+    <header id="intro" class="pt-36 pb-24 gradient-header text-vic-cream relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/damask-pattern.png')]"></div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <!-- University Info -->
+            <div class="mb-8 text-vic-gold tracking-widest uppercase text-sm font-bold">
+                <p>جامعة السلطان قابوس | كلية الحقوق</p>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 drop-shadow-md">قانون مساءلة الأحداث</h1>
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <div class="h-px w-16 bg-vic-gold"></div>
+                <p class="text-2xl text-vic-cream/90 italic">المرسوم السلطاني رقم 30 / 2008</p>
+                <div class="h-px w-16 bg-vic-gold"></div>
+            </div>
+
+            <!-- Students Table (Styled as a plaque) -->
+            <div class="max-w-4xl mx-auto bg-[#3b0e15]/40 backdrop-blur-sm rounded-lg p-8 border border-vic-gold/30 shadow-2xl text-right relative">
+                <!-- Corner Ornaments (CSS only) -->
+                <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-vic-gold"></div>
+                <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-vic-gold"></div>
+                <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-vic-gold"></div>
+                <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-vic-gold"></div>
+
+                <div class="flex justify-between items-end border-b border-vic-gold/20 pb-4 mb-6">
+                    <div>
+                        <span class="text-xs text-vic-gold uppercase block mb-1 tracking-wider">إشراف الدكتورة</span>
+                        <span class="text-2xl font-bold font-serif">بيان المهرية</span>
+                    </div>
+                    <div class="text-left">
+                        <span class="text-xs text-vic-cream/60 block tracking-wider">الفصل الدراسي</span>
+                        <span class="font-bold text-lg">خريف 2025</span>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-4 text-lg">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span>1. المعتصم محمود المحفوظي</span>
+                        <span class="text-vic-gold font-mono">139972</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span>2. نصر مسعود الكثيري</span>
+                        <span class="text-vic-gold font-mono">129211</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span>3. أمجد أحمد الرحبي</span>
+                        <span class="text-vic-gold font-mono">140224</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span>4. باسل زاهر النبهاني</span>
+                        <span class="text-vic-gold font-mono">140797</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Text -->
+    <section class="py-20 bg-vic-cream border-b border-[#e5e5da]">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="border-r-4 border-vic-red pr-8 pl-8 py-2 bg-white shadow-sm rounded-l-lg">
+                <h2 class="text-3xl font-bold text-vic-red mb-6">أولاً: المقدمة</h2>
+                <div class="space-y-4 text-xl text-vic-dark leading-loose">
+                    <p>🔹 تعد رعاية الأحداث أحد أبرز مظاهر تطور السياسة الجنائية الحديثة، حيث لا يعامل الحدث كالجاني البالغ.</p>
+                    <p>🔹 الحدث شخص في طور التكوين يحتاج إلى <span class="font-bold text-vic-red border-b-2 border-vic-gold/50">التوجيه والإصلاح لا العقاب</span>.</p>
+                    <p>🔹 اعتنى المشرع العماني بهذه المسألة فأصدر القانون رقم 30/2008، متبنياً منهجاً مبنياً على الإصلاح والدمج الاجتماعي بدلاً من الزجر.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. CONCEPTS & FACTORS -->
+    <section id="concepts" class="py-20 bg-[#F2EFE9]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-vic-red mb-2 inline-block border-b-2 border-vic-gold pb-2">ثانياً: المفاهيم وحالات الجنوح</h2>
+            </div>
+            
+            <!-- Definitions Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="paper-card p-8 rounded-lg card-hover text-center">
+                    <div class="w-14 h-14 bg-vic-red text-vic-cream rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-md"><i class="fa-solid fa-child"></i></div>
+                    <h3 class="font-bold text-2xl mb-3 text-vic-dark">الحدث</h3>
+                    <p class="text-vic-secondary">كل ذكر أو أنثى لم يكمل <span class="font-bold text-vic-red">18 سنة</span> (ميلادية).</p>
+                </div>
+                <div class="paper-card p-8 rounded-lg card-hover text-center">
+                    <div class="w-14 h-14 bg-vic-dark text-vic-gold rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-md"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="font-bold text-2xl mb-3 text-vic-dark">الحدث الجانح</h3>
+                    <p class="text-vic-secondary">من بلغ 9 سنوات ولم يكمل 18 وارتكب فعلاً يعاقب عليه القانون.</p>
+                </div>
+                <div class="paper-card p-8 rounded-lg card-hover text-center">
+                    <div class="w-14 h-14 bg-vic-gold text-white rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-md"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3 class="font-bold text-2xl mb-3 text-vic-dark">المعرض للجنوح</h3>
+                    <p class="text-vic-secondary">من تحققت في شأنه حالة من الحالات الـ 7 المنصوص عليها.</p>
+                </div>
+            </div>
+
+            <!-- Risk Cases List -->
+            <div class="bg-white border-2 border-vic-gold/30 rounded-lg overflow-hidden max-w-5xl mx-auto shadow-xl relative">
+                <div class="bg-vic-dark text-vic-gold p-5 font-bold flex justify-between items-center border-b-2 border-vic-gold">
+                    <span class="text-xl">⚠️ حالات التعرض للجنوح (المادة 3)</span>
+                    <span class="text-sm bg-vic-gold text-vic-dark px-3 py-1 rounded font-bold">7 حالات</span>
+                </div>
+                <div class="p-8 grid md:grid-cols-2 gap-6 text-lg text-vic-dark bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]">
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>ليس له محل إقامة ثابت أو يبيت في غير أماكن الإقامة.</span></div>
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>المروق من سلطة الولي (سيء السلوك).</span></div>
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>مخالطة المشبوهين والجانحين.</span></div>
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>الهروب من المنزل أو المعاهد التعليمية.</span></div>
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>ليس له وسيلة عيش مشروعة أو عائل مؤتمن.</span></div>
+                    <div class="flex gap-3 items-start"><i class="fa-solid fa-diamond text-vic-red text-xs mt-2"></i> <span>وجوده في بيئة تعرض سلامته للخطر.</span></div>
+                    <div class="flex gap-3 items-start col-span-2 bg-vic-red/10 p-4 rounded border border-vic-red/20"><i class="fa-solid fa-circle-exclamation text-vic-red mt-1"></i> <span class="font-bold text-vic-red">ارتكب جناية أو جنحة وهو دون سن التاسعة (9 سنوات).</span></div>
+                </div>
+            </div>
+
+            <!-- Stages -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-sm border-t-4 border-vic-secondary">
+                <h3 class="font-bold text-2xl text-vic-secondary mb-6 text-center">مراحل المسؤولية الجنائية</h3>
+                <div class="grid md:grid-cols-3 gap-0 text-center divide-x-2 divide-x-reverse divide-vic-gold/20">
+                    <div class="p-4">
+                        <span class="block text-4xl text-green-700 font-bold mb-2">1</span>
+                        <span class="text-xl font-bold text-vic-dark block">انعدام المسؤولية</span>
+                        <span class="text-sm text-vic-secondary">(دون 9 سنوات)</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="block text-4xl text-vic-gold font-bold mb-2">2</span>
+                        <span class="text-xl font-bold text-vic-dark block">المسؤولية الناقصة</span>
+                        <span class="text-sm text-vic-secondary">(9-18 سنة)</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="block text-4xl text-vic-red font-bold mb-2">3</span>
+                        <span class="text-xl font-bold text-vic-dark block">المسؤولية الكاملة</span>
+                        <span class="text-sm text-vic-secondary">(18+ سنة)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MEASURES & PENALTIES -->
+    <section id="measures" class="py-24 bg-vic-cream">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-vic-red mb-16 underline decoration-vic-gold decoration-2 underline-offset-8">ثالثاً: التدابير والعقوبات</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Care Measures -->
+                <div class="paper-card p-8 rounded-t-lg border-t-8 border-green-800 h-full relative">
+                    <div class="absolute top-4 left-4 text-green-800/10 text-8xl"><i class="fa-solid fa-leaf"></i></div>
+                    <h3 class="font-bold text-2xl mb-6 text-green-900 relative z-10">تدابير الرعاية</h3>
+                    <ul class="space-y-4 text-lg text-vic-dark relative z-10 list-image-[url(https://i.imgur.com/8y7Fz5S.png)] pl-4">
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-green-700"></i> تسليم الحدث.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-green-700"></i> التوبيخ وتوجيه اللوم.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-green-700"></i> منع ارتياد أماكن معينة.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-check text-green-700"></i> منع مزاولة عمل معين.</li>
+                    </ul>
+                </div>
+
+                <!-- Reform Measures -->
+                <div class="paper-card p-8 rounded-t-lg border-t-8 border-vic-red h-full relative">
+                    <div class="absolute top-4 left-4 text-vic-red/10 text-8xl"><i class="fa-solid fa-gavel"></i></div>
+                    <h3 class="font-bold text-2xl mb-6 text-vic-red relative z-10">تدابير الإصلاح</h3>
+                    <ul class="space-y-4 text-lg text-vic-dark relative z-10">
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-hammer text-vic-red"></i> الإيداع في دار إصلاح.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-hammer text-vic-red"></i> الاختبار القضائي.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-hammer text-vic-red"></i> التدريب المهني.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-hammer text-vic-red"></i> الإلزام بواجبات.</li>
+                        <li class="flex gap-3 items-center"><i class="fa-solid fa-hammer text-vic-red"></i> الإيداع الصحي.</li>
+                    </ul>
+                </div>
+
+                <!-- Penalties -->
+                <div class="flex flex-col gap-6">
+                    <div class="paper-card p-6 rounded border-l-4 border-vic-gold bg-[#fffdf5]">
+                        <h4 class="font-bold text-xl mb-3 text-vic-gold"><i class="fa-solid fa-handshake"></i> الرعاية اللاحقة</h4>
+                        <p class="text-base text-vic-secondary">زيارة الأسرة، المساعدة في التفاعل المجتمعي، إعمال التعليم.</p>
+                    </div>
+                    <div class="paper-card p-6 rounded border-l-4 border-vic-dark bg-[#e8e8e8]">
+                        <h4 class="font-bold text-xl mb-3 text-vic-dark"><i class="fa-solid fa-lock"></i> عقوبات البالغين</h4>
+                        <p class="text-base text-vic-dark font-bold mb-2">يعاقب البالغ إذا:</p>
+                        <ul class="text-base text-vic-secondary space-y-1 list-disc list-inside">
+                            <li>أهمل رعاية الحدث.</li>
+                            <li>حرضه على الهروب.</li>
+                            <li>ساعده على الجنوح.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROCEDURES -->
+    <section id="procedures" class="py-24 bg-[#F2EFE9]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-vic-red mb-16">رابعاً: الإجراءات الجزائية</h2>
+
+            <div class="max-w-6xl mx-auto space-y-12">
+                <!-- 1. Judicial Jurisdiction -->
+                <div class="paper-card p-8 rounded-lg border-l-8 border-vic-gold relative">
+                    <div class="absolute -left-4 -top-4 w-12 h-12 bg-vic-gold rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-[#F2EFE9]">1</div>
+                    <h3 class="text-2xl font-bold text-vic-dark mb-6 mr-6">الاختصاص القضائي لمحكمة الأحداث</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-lg text-vic-secondary mb-4"><strong>الاختصاص:</strong> تختص محكمة الأحداث (الدوائر المختصة) بالنظر في قضايا الأحداث وفقاً لمعيار السن.</p>
+                        </div>
+                        <div class="bg-vic-cream p-4 rounded border border-vic-gold/30">
+                            <h4 class="font-bold text-vic-red mb-3">الجهات ذات الاختصاص (4 جهات):</h4>
+                            <ul class="list-disc list-inside space-y-2 text-base text-vic-dark">
+                                <li>وحدة شرطة الأحداث.</li>
+                                <li>الادعاء العام (أعضاء مخصصون).</li>
+                                <li>وزارة التنمية الاجتماعية (مراقب السلوك).</li>
+                                <li>المجلس الأعلى للقضاء (المحاكم المختصة).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Pre-trial Procedures -->
+                <div class="paper-card p-8 rounded-lg border-l-8 border-vic-red relative">
+                    <div class="absolute -left-4 -top-4 w-12 h-12 bg-vic-red rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-[#F2EFE9]">2</div>
+                    <h3 class="text-2xl font-bold text-vic-dark mb-6 mr-6">الإجراءات السابقة على المحاكمة</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="min-w-[40px] text-3xl text-vic-secondary"><i class="fa-solid fa-user-shield"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-vic-red">أ. مرحلة جمع الاستدلالات</h4>
+                                <p class="text-vic-secondary">تكون بواسطة <strong>وحدة شرطة الأحداث</strong> التابعة لشرطة عمان السلطانية حصراً.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="min-w-[40px] text-3xl text-vic-secondary"><i class="fa-solid fa-file-contract"></i></div>
+                            <div>
+                                <h4 class="font-bold text-xl text-vic-red">ب. مرحلة التحقيق الابتدائي</h4>
+                                <p class="text-vic-secondary">الادعاء العام بواسطة أعضاء مخصصون لقضايا الأحداث.</p>
+                            </div>
+                        </div>
+                        <div class="bg-[#3b0e15] text-vic-cream p-5 rounded-lg mt-4">
+                            <h4 class="font-bold text-vic-gold mb-2"><i class="fa-solid fa-stopwatch"></i> مدد توقيف الأحداث (الحبس الاحتياطي)</h4>
+                            <ul class="list-none space-y-2 text-base">
+                                <li>• يتم إيداع الحدث في <strong>دار الملاحظة</strong> لمدة لا تتجاوز <strong>48 ساعة</strong>.</li>
+                                <li>• يجوز التجديد لمدة لا تجاوز <strong>الأسبوع</strong> بإذن من المدعي العام.</li>
+                                <li>• لاستمرار التوقيف أكثر من ذلك، يجب طلب إذن من المحكمة قبل انتهاء المدة.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Trial Guarantees -->
+                <div class="paper-card p-8 rounded-lg border-l-8 border-green-800 relative">
+                    <div class="absolute -left-4 -top-4 w-12 h-12 bg-green-800 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-[#F2EFE9]">3</div>
+                    <h3 class="text-2xl font-bold text-vic-dark mb-6 mr-6">ضمانات المحاكمة وإجراءاتها</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 bg-green-50 p-3 rounded border border-green-200">
+                            <i class="fa-solid fa-user-secret text-green-700 text-xl"></i>
+                            <span class="font-bold text-green-900">1. سرية المحاكمة وحظر النشر.</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-green-50 p-3 rounded border border-green-200">
+                            <i class="fa-solid fa-gavel text-green-700 text-xl"></i>
+                            <span class="font-bold text-green-900">2. حق الدفاع والتمثيل القانوني.</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-green-50 p-3 rounded border border-green-200">
+                            <i class="fa-solid fa-clipboard-user text-green-700 text-xl"></i>
+                            <span class="font-bold text-green-900">3. دراسة شخصية الحدث (بحث اجتماعي).</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-green-50 p-3 rounded border border-green-200">
+                            <i class="fa-solid fa-file-invoice-dollar text-green-700 text-xl"></i>
+                            <span class="font-bold text-green-900">4. الإعفاء من الرسوم وعدم تسجيل سوابق.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Appeal & Release -->
+                <div class="paper-card p-8 rounded-lg border-l-8 border-vic-dark relative">
+                    <div class="absolute -left-4 -top-4 w-12 h-12 bg-vic-dark rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg border-4 border-[#F2EFE9]">4</div>
+                    <h3 class="text-2xl font-bold text-vic-dark mb-6 mr-6">الطعن في الأحكام والإفراج الشرطي</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-vic-gold/30">
+                        <div class="pl-4">
+                            <h4 class="font-bold text-lg text-vic-red mb-3">الطعن في الأحكام</h4>
+                            <p class="text-vic-secondary mb-2">لكل من (والدي الحدث، الوصي...) الطعن في الأحكام.</p>
+                            <p class="text-sm bg-red-50 text-red-800 p-2 rounded border border-red-200"><strong>تنبيه:</strong> الطعن لا يوقف تنفيذ تدابير الرعاية والإصلاح (واجبة النفاذ فوراً).</p>
+                        </div>
+                        <div class="pr-4 pt-4 md:pt-0">
+                            <h4 class="font-bold text-lg text-vic-red mb-3">الإفراج الشرطي</h4>
+                            <p class="text-vic-secondary mb-3">يجوز للمحكمة (من تلقاء نفسها أو بطلب) الإفراج بشرطين:</p>
+                            <ol class="list-decimal list-inside text-vic-dark font-bold space-y-1 mb-3">
+                                <li>إكمال نصف المدة المحكوم بها.</li>
+                                <li>حسن السيرة والسلوك في الدار.</li>
+                            </ol>
+                            <p class="text-xs text-vic-secondary">إذا خالف الشروط: يلغى الإفراج ويعاد لإكمال المدة.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COMPARISON -->
+    <section id="comparison" class="py-24 bg-vic-dark text-vic-cream border-t-8 border-vic-gold">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center gap-4 mb-12">
+                <div class="h-px w-20 bg-vic-gold"></div>
+                <h2 class="text-4xl font-bold text-vic-gold">خامساً: المقارنة التشريعية</h2>
+                <div class="h-px w-20 bg-vic-gold"></div>
+            </div>
+
+            <div class="overflow-x-auto rounded-lg border border-vic-gold/30 shadow-2xl">
+                <table class="w-full text-right min-w-[900px] border-collapse">
+                    <thead class="bg-[#2c1e1e] text-vic-gold">
+                        <tr>
+                            <th class="p-6 font-bold text-xl border-b-2 border-vic-gold">وجه المقارنة</th>
+                            <th class="p-6 font-bold text-xl border-b-2 border-vic-gold bg-vic-red/20 text-white">🇴🇲 عمان</th>
+                            <th class="p-6 font-bold text-xl border-b-2 border-vic-gold">🇪🇬 مصر</th>
+                            <th class="p-6 font-bold text-xl border-b-2 border-vic-gold">🇰🇼 الكويت</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-vic-gold/10 text-lg">
+                        <!-- Age -->
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">تعريف الحدث</td>
+                            <td class="p-6 font-bold text-white bg-vic-red/10">لم يكمل 18 سنة</td>
+                            <td class="p-6">لم يتجاوز 18 سنة ميلادية</td>
+                            <td class="p-6">لم يجاوز 18 سنة</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">سن انعدام المسؤولية</td>
+                            <td class="p-6 font-bold text-white bg-vic-red/10">9 سنوات <span class="text-sm font-normal text-vic-gold block">(موقف وسطي)</span></td>
+                            <td class="p-6">12 سنة <span class="text-sm font-normal text-gray-400 block">(حمائي)</span></td>
+                            <td class="p-6">7 سنوات <span class="text-sm font-normal text-gray-400 block">(متشدد)</span></td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">مرحلة التدابير</td>
+                            <td class="p-6 bg-vic-red/10">من 9 إلى 16 سنة</td>
+                            <td class="p-6">من 7 إلى 12 سنة</td>
+                            <td class="p-6">من 7 إلى 15 سنة</td>
+                        </tr>
+                        <!-- Risk Cases -->
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">حالات الخطر (التعرض للانحراف)</td>
+                            <td class="p-6 bg-vic-red/10">7 حالات (تقليدية)<br><small>التشرد، المروق، المخالطة</small></td>
+                            <td class="p-6">15 حالة (اجتماعية)<br><small>شملت التسرب التعليمي، جمع الأعقاب</small></td>
+                            <td class="p-6">أضافت حالات أمنية وفكرية<br><small>التطرف، الإرهاب، التشبه بالجنس الآخر</small></td>
+                        </tr>
+                        <!-- Punitive Policy -->
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">حظر الإعدام والمؤبد</td>
+                            <td class="p-6 bg-vic-red/10">لا يحكم بالإعدام أو السجن المطلق</td>
+                            <td class="p-6">لا يحكم بالإعدام أو المؤبد أو المشدد</td>
+                            <td class="p-6">لا يحكم بالإعدام أو الحبس المؤبد</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">العقوبة البديلة (للأحداث الكبار)</td>
+                            <td class="p-6 bg-vic-red/10">السجن (3-10 سنوات)<br><small>من سن 16-18 سنة</small></td>
+                            <td class="p-6">السجن (يستبدل المؤبد/المشدد)<br><small>من سن 15-18 سنة</small></td>
+                            <td class="p-6">الحبس (لا يزيد عن 15 سنة)<br><small>من سن 15-18 سنة</small></td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">عقوبة الغرامة</td>
+                            <td class="p-6 bg-vic-red/10 text-vic-gold">لا يجوز توقيع الغرامة مطلقاً</td>
+                            <td class="p-6">لا عقوبة مالية دون 15 سنة</td>
+                            <td class="p-6">لا يعاقب بالغرامة (مقترنة أو لا)</td>
+                        </tr>
+                        <!-- Judicial Formation -->
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">تشكيل المحكمة</td>
+                            <td class="p-6 bg-vic-red/10">قاضٍ واحد (جنح) / 3 قضاة (جنايات)</td>
+                            <td class="p-6">3 قضاة + خبيرين (وجوباً أحدهما امرأة)</td>
+                            <td class="p-6">قاضٍ (وكيل محكمة) + خبيرين (وجوباً)</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">الأجهزة المعاونة</td>
+                            <td class="p-6 bg-vic-red/10">وحدة شرطة الأحداث + ادعاء عام مخصص</td>
+                            <td class="p-6">نيابات وشرطة متخصصة</td>
+                            <td class="p-6">نيابة أحداث وشرطة حماية أحداث (نص صريح)</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="p-6 font-bold text-vic-gold bg-white/5">الادعاء المدني</td>
+                            <td class="p-6 bg-vic-red/10">لا تقبل الدعوى المدنية</td>
+                            <td class="p-6">لا تقبل الدعوى المدنية</td>
+                            <td class="p-6">لا يجوز الادعاء المدني</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. RESULTS & RECOMMENDATIONS -->
+    <section id="conclusion" class="py-24 bg-vic-cream">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-16">
+            <!-- Results -->
+            <div class="bg-white p-10 rounded-sm shadow-lg border-t-4 border-green-800 relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 text-green-800/5 text-9xl"><i class="fa-solid fa-check-double"></i></div>
+                <h3 class="text-3xl font-bold text-green-900 mb-8 border-b pb-4">📌 النتائج المستخلصة</h3>
+                <ul class="space-y-6 text-xl text-vic-dark relative z-10">
+                    <li class="flex gap-4"><i class="fa-solid fa-feather-pointed text-green-700 mt-1"></i> <strong>موقف وسطي:</strong> حدد المشرع العماني سن المساءلة بـ 9 سنوات (معتدل بين 7 و 12).</li>
+                    <li class="flex gap-4"><i class="fa-solid fa-feather-pointed text-green-700 mt-1"></i> <strong>تقليدية النصوص:</strong> خلو القانون العماني من تحديات مستحدثة (كالتطرف والتسرب) الموجودة في قوانين أخرى.</li>
+                    <li class="flex gap-4"><i class="fa-solid fa-feather-pointed text-green-700 mt-1"></i> <strong>أفضلية في منع الغرامات:</strong> تميز بنص صريح يمنع الغرامة المالية مطلقاً حماية للأسرة.</li>
+                    <li class="flex gap-4"><i class="fa-solid fa-feather-pointed text-green-700 mt-1"></i> <strong>تأخير العقوبة السالبة:</strong> السجن جوازي فقط من سن 16، مما يوفر حماية أكبر (مقارنة بـ 15 في دول أخرى).</li>
+                </ul>
+            </div>
+            <!-- Recommendations -->
+            <div class="bg-white p-10 rounded-sm shadow-lg border-t-4 border-vic-gold relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 text-vic-gold/10 text-9xl"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3 class="text-3xl font-bold text-vic-gold mb-8 border-b pb-4">🚀 التوصيات (للمشرع العماني)</h3>
+                <ul class="space-y-6 text-xl text-vic-dark relative z-10">
+                    <li class="flex gap-4"><span class="text-vic-gold font-bold">1.</span> <strong>تحديث حالات التعرض للجنوح:</strong> إضافة "اعتناق الفكر المتطرف" (أسوة بالكويت) و"التسرب من التعليم" (أسوة بمصر).</li>
+                    <li class="flex gap-4"><span class="text-vic-gold font-bold">2.</span> <strong>إضافة تدبير "العمل للمنفعة العامة":</strong> كبديل عقابي حديث يدمج الحدث في المجتمع.</li>
+                    <li class="flex gap-4"><span class="text-vic-gold font-bold">3.</span> <strong>تطوير تشكيل المحكمة:</strong> جعل وجود الخبراء الاجتماعيين وجوبياً في الهيئة لضمان الحكم النفسي السليم.</li>
+                    <li class="flex gap-4"><span class="text-vic-gold font-bold">4.</span> <strong>مأسسة التخصص القضائي:</strong> إنشاء "نيابة عامة للأحداث" ككيان مستقل هيكلياً.</li>
+                    <li class="flex gap-4"><span class="text-vic-gold font-bold">5.</span> <strong>تعزيز مسؤولية ولي الأمر:</strong> تشديد النصوص الخاصة بمساءلة الولي المهمل وإلزامه بدورات تأهيلية.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. AI ADVISOR ZONE -->
+    <section id="ai-zone" class="py-24 bg-[#1a120b] relative overflow-hidden text-vic-cream border-t border-vic-gold">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-vic-red opacity-10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-vic-gold opacity-10 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            <div class="mb-8">
+                <i class="fa-solid fa-scale-balanced text-5xl text-vic-gold mb-4"></i>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-vic-gold font-serif">المستشار القانوني الذكي</h2>
+                <p class="text-xl text-vic-cream/60">بوابتك التفاعلية لفهم القانون العماني وتحليل القضايا</p>
+            </div>
+
+            <div class="bg-[#2c1e1e] rounded-lg shadow-2xl overflow-hidden text-right border border-vic-gold/30 flex flex-col h-[600px]">
+                <!-- Chat Header -->
+                <div class="bg-[#3b0e15] p-5 border-b border-vic-gold/20 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="w-3 h-3 bg-green-500 rounded-full shadow-[0_0_10px_#22c55e]"></div>
+                        <span class="font-bold text-vic-gold text-lg">المساعد القانوني (AI)</span>
+                    </div>
+                    <button onclick="clearChat()" class="text-vic-cream/50 hover:text-vic-red text-sm transition"><i class="fa-solid fa-trash-can"></i> مسح</button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div id="chat-box" class="flex-1 overflow-y-auto p-8 space-y-6 bg-[#251a1a]">
+                    <div class="flex gap-4">
+                        <div class="w-12 h-12 rounded-full bg-vic-gold flex items-center justify-center text-vic-dark text-xl shrink-0 border-2 border-vic-dark"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="bg-[#3b2525] p-5 rounded-r-2xl rounded-bl-2xl shadow-lg border border-vic-gold/10 text-vic-cream text-lg leading-relaxed max-w-[85%]">
+                            أهلاً بك في قاعة المحكمة الافتراضية. ⚖️<br>
+                            أنا جاهز للإجابة على استفساراتك حول قانون الأحداث، أو اضغط على <b>"تحدي القضايا"</b> بالأسفل لنختبر معلوماتك بسيناريو واقعي!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="p-6 bg-[#3b0e15] border-t border-vic-gold/20">
+                    <div class="flex gap-3 overflow-x-auto pb-4 mb-2 no-scrollbar">
+                        <button onclick="generateCase()" class="whitespace-nowrap text-sm bg-vic-gold text-vic-dark px-5 py-2 rounded shadow hover:bg-white transition flex items-center gap-2 font-bold">
+                            <i class="fa-solid fa-gavel"></i> تحدي القضايا
+                        </button>
+                        <button onclick="askAI('قارن بين عمان والكويت في سن المسؤولية')" class="whitespace-nowrap text-sm bg-[#2c1e1e] hover:bg-[#4a3333] text-vic-cream px-4 py-2 rounded transition border border-vic-gold/30">مقارنة السن</button>
+                        <button onclick="askAI('ما عقوبة الهروب من المدرسة؟')" class="whitespace-nowrap text-sm bg-[#2c1e1e] hover:bg-[#4a3333] text-vic-cream px-4 py-2 rounded transition border border-vic-gold/30">عقوبة الهروب</button>
+                    </div>
+                    
+                    <div class="relative">
+                        <input type="text" id="user-input" placeholder="اكتب سؤالك القانوني هنا..." class="w-full bg-[#1F1717] border border-vic-gold/30 rounded py-4 px-6 pr-16 focus:outline-none focus:border-vic-gold focus:bg-black transition text-vic-cream placeholder-vic-cream/30 text-lg">
+                        <button onclick="sendMessage()" class="absolute left-2 top-2 bg-vic-gold hover:bg-white text-vic-dark w-10 h-10 rounded flex items-center justify-center transition shadow-lg">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#110c0c] text-vic-gold/50 py-10 text-center text-sm border-t border-vic-gold/10">
+        <div class="container mx-auto">
+            <p class="mb-2 text-lg font-bold text-vic-gold/70">جامعة السلطان قابوس © 2024</p>
+            <p class="opacity-60">كلية الحقوق | مقرر القوانين الجنائية الخاصة</p>
+        </div>
+    </footer>
+
+    <!-- LOGIC -->
+    <script>
+        const apiKey = ""; // API Key
+
+        function askAI(text) {
+            document.getElementById('user-input').value = text;
+            sendMessage();
+        }
+
+        function clearChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML = `
+                <div class="flex gap-4 animate-fade-in">
+                    <div class="w-12 h-12 rounded-full bg-vic-gold flex items-center justify-center text-vic-dark text-xl shrink-0 border-2 border-vic-dark"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="bg-[#3b2525] p-5 rounded-r-2xl rounded-bl-2xl shadow-lg border border-vic-gold/10 text-vic-cream text-lg leading-relaxed max-w-[85%]">
+                        تم مسح السجل. تفضل بطرح قضية جديدة.
+                    </div>
+                </div>`;
+        }
+
+        async function generateCase() {
+            const chatBox = document.getElementById('chat-box');
+            const loadingId = showLoading(chatBox);
+            
+            const prompt = "أنت قاضٍ في محكمة افتراضية. قم بصياغة 'سيناريو قضية قصيرة' لحدث عماني (حدد العمر والجريمة) بلغة قانونية رصينة. ثم اسأل المستخدم: 'بصفتك محامياً، ما هو الدفع القانوني أو التدبير المتوقع؟'.";
+
+            try {
+                const reply = await callGeminiAPI(prompt);
+                removeLoading(loadingId);
+                appendMessage('ai', reply);
+            } catch (e) {
+                removeLoading(loadingId);
+                appendMessage('ai', 'عذراً، تعذر الاتصال بالمحكمة.');
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const text = input.value.trim();
+            
+            if (!text) return;
+
+            appendMessage('user', text);
+            input.value = '';
+            
+            const loadingId = showLoading(chatBox);
+
+            try {
+                const reply = await callGeminiAPI(text);
+                removeLoading(loadingId);
+                appendMessage('ai', reply);
+            } catch(e) {
+                removeLoading(loadingId);
+                appendMessage('ai', "فشل الاتصال.");
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const chatBox = document.getElementById('chat-box');
+            const isAI = sender === 'ai';
+            const alignClass = isAI ? '' : 'flex-row-reverse';
+            const bgClass = isAI ? 'bg-[#3b2525] text-vic-cream border-vic-gold/10' : 'bg-vic-gold text-vic-dark border-vic-gold';
+            const icon = isAI ? 'fa-user-tie' : 'fa-gavel';
+            const iconBg = isAI ? 'bg-vic-gold text-vic-dark' : 'bg-vic-cream text-vic-red';
+            
+            chatBox.innerHTML += `
+                <div class="flex gap-4 ${alignClass} animate-fade-in mb-6">
+                    <div class="w-12 h-12 rounded-full ${iconBg} flex items-center justify-center text-xl shrink-0 shadow-lg border-2 border-vic-dark"><i class="fa-solid ${icon}"></i></div>
+                    <div class="${bgClass} p-5 rounded-2xl ${isAI ? 'rounded-tl-none' : 'rounded-tr-none'} text-lg shadow-md leading-relaxed max-w-[85%] border">
+                        ${marked.parse(text)}
+                    </div>
+                </div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function showLoading(container) {
+            const id = 'loading-' + Date.now();
+            container.innerHTML += `
+                <div id="${id}" class="flex gap-4 animate-fade-in mb-6">
+                    <div class="w-12 h-12 rounded-full bg-vic-gold flex items-center justify-center text-vic-dark text-xl shrink-0 border-2 border-vic-dark"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="bg-[#3b2525] p-5 rounded-r-2xl rounded-bl-2xl shadow-lg border border-vic-gold/10 flex items-center gap-2">
+                        <div class="w-2 h-2 bg-vic-gold rounded-full animate-bounce"></div>
+                        <div class="w-2 h-2 bg-vic-gold rounded-full animate-bounce delay-75"></div>
+                        <div class="w-2 h-2 bg-vic-gold rounded-full animate-bounce delay-150"></div>
+                    </div>
+                </div>`;
+            container.scrollTop = container.scrollHeight;
+            return id;
+        }
+
+        function removeLoading(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
+
+        async function callGeminiAPI(userText) {
+            const context = `
+            أنت خبير قانوني وقاضٍ افتراضي في قانون مساءلة الأحداث العماني (30/2008).
+            
+            المعطيات القانونية الصارمة:
+            1. السن: 9 سنوات (تمييز). أقل من ذلك لا مسؤولية.
+            2. العقوبات: يمنع الغرامة، الإعدام، والمؤبد. السجن من 16 سنة فقط.
+            3. حالات الخطر: 7 حالات (تشرد، مروق، مخالطة، هروب، لا عائل، بيئة خطرة، جناية دون 9).
+            4. المقارنة: الكويت (7 سنين)، عمان (9 سنين)، مصر (12 سنة).
+            
+            الأسلوب:
+            - استخدم لغة قانونية رصينة ووقورة (مثل: "نحكم بما يلي"، "وفقاً للمادة..").
+            - استخدم تنسيق Markdown للعناوين والنقاط.
+            `;
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    contents: [{ parts: [{ text: userText }] }],
+                    systemInstruction: { parts: [{ text: context }] }
+                })
+            });
+            
+            const data = await response.json();
+            return data.candidates?.[0]?.content?.parts?.[0]?.text || "عذراً، المحكمة في استراحة.";
+        }
+    </script>
+</body>
+</html>
