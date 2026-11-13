@@ -43,6 +43,13 @@ export function PitchPractice({ tone }: { tone: number }) {
   const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(timer.current), []);
   const user = toChaoScale(r.pitch);
+  if ((r as { unsupported?: boolean }).unsupported)
+    return (
+      <div className="mt-4 flex flex-col items-center gap-2">
+        <ToneCurve tone={tone} />
+        <div className="text-xs text-muted">شكل النغمة {TONE_LABELS[tone].name}</div>
+      </div>
+    );
   return (
     <div className="mt-4 flex flex-col items-center gap-2">
       <ToneCurve tone={tone} user={user} />

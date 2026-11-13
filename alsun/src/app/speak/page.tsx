@@ -30,6 +30,8 @@ export default function SpeakPage() {
   const live = useLiveConversation();
   const [scenario, setScenario] = useState<Scenario | null>(null);
   const [saving, setSaving] = useState(false);
+  const [typed, setTyped] = useState("");
+  const sendText = (live as { sendText?: (t: string) => void }).sendText;
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const bottom = useRef<HTMLDivElement>(null);
   useEffect(() => bottom.current?.scrollIntoView({ behavior: "smooth" }), [live.turns.length]);
@@ -144,6 +146,21 @@ export default function SpeakPage() {
               <div ref={bottom} />
             </div>
 
+            {inSession && sendText && live.status === "live" && (
+              <form
+                className="mt-3 flex gap-2"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  sendText(typed);
+                  setTyped("");
+                }}
+              >
+                <input id="typed-reply" dir="auto" value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="أو اكتب ردك هنا…" className="min-w-0 flex-1 rounded-xl border border-line bg-card-2 px-3 py-2" />
+                <button className="btn btn-ghost !min-h-10" disabled={!typed.trim()}>
+                  إرسال
+                </button>
+              </form>
+            )}
             {inSession ? (
               <div className="sticky bottom-24 mt-4 flex gap-3">
                 <button className="btn btn-ghost" onClick={() => live.setMuted(!live.muted)}>
