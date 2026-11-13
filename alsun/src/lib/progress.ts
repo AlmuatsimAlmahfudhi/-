@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { learningPath, type LangCode, type PathLesson } from "@/content";
-import { api } from "./api";
+import { api } from "@/lib/api";
 
 export interface LessonRow {
   lessonId: string;

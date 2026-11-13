@@ -403,7 +403,7 @@ export function SpeakEx({ ex, lang, locked, onAnswer }: Props<"speak">) {
   const [local, setLocal] = useState<{ score: number; heard: string } | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const bcp = { en: "en-US", fr: "fr-FR", es: "es-ES", zh: "zh-CN" }[lang];
-  const useAi = Boolean(ai?.enabled);
+  const useAi = Boolean(ai?.enabled) && (ai as { mic?: boolean } | null)?.mic !== false;
   const score = result?.score ?? local?.score;
   const pass = score !== undefined && score >= 60;
 

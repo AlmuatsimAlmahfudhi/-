@@ -8,6 +8,7 @@ import { Bar, SectionTitle, TopStats } from "@/components/ui";
 import { api } from "@/lib/api";
 import { ACHIEVEMENTS, ATTRIBUTES, HERO_CLASSES, SHOP, titleFor, type Attribute, type HeroClass, type ShopItem } from "@/lib/game-rules";
 import type { GameEvent } from "@/server/game";
+import { downloadBackup } from "@/lib/backup";
 
 function Radar({ values }: { values: Record<string, number> }) {
   const keys = Object.keys(ATTRIBUTES) as Attribute[];
@@ -51,6 +52,7 @@ export default function HeroPage() {
   const [name, setName] = useState("");
   const [models, setModels] = useState<{ name: string; actions: string[] }[] | null>(null);
   const [aiCfg, setAiCfg] = useState<{ textModel: string; liveModel: string; ttsModel: string; voice: string } | null>(null);
+  const [pendingImport, setPendingImport] = useState<File | null>(null);
   const [prefs, setPrefs] = useState({ theme: "dark", sfx: "on", tts: "browser" });
 
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function HeroPage() {
     }
   };
   const importBackup = async (f: File) => {
-    if (!confirm("سيستبدل الاستيراد كل تقدمك الحالي. متابعة؟")) return;
+    setPendingImport(null);
     await api("/api/backup", JSON.parse(await f.text()));
     toast("تم استيراد النسخة الاحتياطية", "✅");
     refresh();
@@ -234,7 +236,13 @@ export default function HeroPage() {
           </label>
         </div>
 
-        <SectionTitle>🔮 الذكاء الاصطناعي (Gemini)</SectionTitle>
+        <SectionTitle>🔮 الذكاء الاصطناعي</SectionTitle>
+        {(ai as { provider?: string } | null)?.provider === "claude" ? (
+          <div className="card p-4 text-sm leading-7">
+            <div className={`font-bold ${ai?.enabled ? "text-good" : "text-bad"}`}>{ai?.enabled ? "✓ Claude مدمج ويعمل" : "✗ غير متاح في هذا العرض"}</div>
+            <div className="text-muted">في هذه النسخة يتولى Claude توليد الدروس وشرح الأخطاء والمحادثة، ويُفهم كلامك عبر خاصية الإملاء الصوتي في المتصفح.</div>
+          </div>
+        ) : (
         <div className="card space-y-3 p-4 text-sm">
           <div className={`font-bold ${ai?.enabled ? "text-good" : "text-bad"}`}>{ai?.enabled ? "✓ المفتاح مضبوط" : "✗ لم يُضبط مفتاح GEMINI_API_KEY"}</div>
           {!ai?.enabled && (
@@ -285,17 +293,29 @@ export default function HeroPage() {
             </>
           )}
         </div>
+        )}
 
         <SectionTitle>💾 النسخ الاحتياطي</SectionTitle>
         <div className="card flex gap-3 p-4">
-          <a href="/api/backup" className="btn btn-ghost flex-1">
+          <button onClick={() => downloadBackup().catch((e) => toast(e.message, "⚠️"))} className="btn btn-ghost flex-1">
             ⬇️ تصدير
-          </a>
+          </button>
           <label className="btn btn-ghost flex-1 cursor-pointer">
             ⬆️ استيراد
-            <input type="file" accept="application/json" className="hidden" onChange={(e) => e.target.files?.[0] && importBackup(e.target.files[0])} />
+            <input type="file" accept="application/json" className="hidden" onChange={(e) => e.target.files?.[0] && setPendingImport(e.target.files[0])} />
           </label>
         </div>
+        {pendingImport && (
+          <div className="card mt-2 flex items-center gap-2 border-bad p-3 text-sm">
+            <span className="flex-1">سيستبدل الاستيراد كل تقدمك الحالي بالملف «{pendingImport.name}».</span>
+            <button className="btn btn-bad !min-h-10" onClick={() => importBackup(pendingImport)}>
+              استبدل
+            </button>
+            <button className="btn btn-ghost !min-h-10" onClick={() => setPendingImport(null)}>
+              إلغاء
+            </button>
+          </div>
+        )}
         <p className="mt-2 text-xs text-muted">كل بياناتك محفوظة محلياً في الملف data/alsun.db على جهازك.</p>
       </main>
     </>
