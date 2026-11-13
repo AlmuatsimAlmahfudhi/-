@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* سمة «ألسُن»: ليلية ذهبية بروح ألعاب تقمص الأدوار */
+:root {
+  --bg: #0d1020;
+  --bg-2: #141a33;
+  --card: #1a2142;
+  --card-2: #222b55;
+  --line: #2e3970;
+  --text: #eef0ff;
+  --muted: #9aa3d6;
+  --gold: #f5c542;
+  --gold-2: #ffdd7a;
+  --good: #34d399;
+  --bad: #f87171;
+  --xp: #a78bfa;
+  --gem: #38bdf8;
+  --fire: #fb923c;
+  --accent: #6d7dff;
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f1ea;
+  --bg-2: #ebe5d8;
+  --card: #ffffff;
+  --card-2: #f6f2e8;
+  --line: #ddd3bd;
+  --text: #1d1a33;
+  --muted: #6b6788;
+  --gold: #c8920e;
+  --gold-2: #e0ad2d;
+  --accent: #4f5bd5;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+  --color-xp: var(--xp);
+  --color-gem: var(--gem);
+  --color-fire: var(--fire);
+  --color-accent: var(--accent);
+  --font-sans: "IBM Plex Sans Arabic", "Inter Variable", system-ui, sans-serif;
+  --font-latin: "Inter Variable", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-han: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* النص الأجنبي داخل الواجهة العربية */
+.foreign {
+  font-family: var(--font-latin);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.foreign:lang(zh) {
+  font-family: var(--font-han);
+}
+
+.card {
+  background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 85%, var(--bg)));
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.25rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  transition: transform 0.08s ease, filter 0.15s ease, opacity 0.15s;
+  user-select: none;
+  touch-action: manipulation;
+}
+.btn:active {
+  transform: translateY(2px) scale(0.99);
+}
+.btn:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-2), var(--gold));
+  color: #2a1d00;
+  box-shadow: 0 4px 0 color-mix(in oklab, var(--gold) 55%, black);
+}
+.btn-ghost {
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  box-shadow: 0 3px 0 color-mix(in oklab, var(--line) 80%, black);
+}
+.btn-good {
+  background: var(--good);
+  color: #03251a;
+  box-shadow: 0 4px 0 color-mix(in oklab, var(--good) 55%, black);
+}
+.btn-bad {
+  background: var(--bad);
+  color: #2b0505;
+  box-shadow: 0 4px 0 color-mix(in oklab, var(--bad) 55%, black);
+}
+
+.option {
+  border: 2px solid var(--line);
+  background: var(--card-2);
+  border-radius: 1rem;
+  min-height: 3.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 3px 0 var(--line);
+  transition: transform 0.08s, border-color 0.15s, background 0.15s;
+  touch-action: manipulation;
+}
+.option:active {
+  transform: translateY(2px);
+}
+.option[data-state="selected"] {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--accent) 18%, var(--card-2));
+}
+.option[data-state="correct"] {
+  border-color: var(--good);
+  background: color-mix(in oklab, var(--good) 18%, var(--card-2));
+}
+.option[data-state="wrong"] {
+  border-color: var(--bad);
+  background: color-mix(in oklab, var(--bad) 18%, var(--card-2));
+}
+
+.safe-bottom {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.5rem);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.shake {
+  animation: shake 0.35s ease;
+}
