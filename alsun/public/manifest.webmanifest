@@ -1,0 +1,12 @@
+{
+  "name": "ألسُن — مغامرة تعلم اللغات",
+  "short_name": "ألسُن",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d1020",
+  "theme_color": "#0d1020",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
